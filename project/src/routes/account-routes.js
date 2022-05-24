@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const auth = require('../middleware/auth/index');
+const Controller = require('../modules/account/account-controller');
 
 class AccountRoutes {
 
@@ -17,7 +18,7 @@ class AccountRoutes {
     }
 
     Routes() {
-        this.Route.get('/account/meusaldo', );
+        this.Route.get('/meusaldo', Controller.findBalnce);
     }
 }
 

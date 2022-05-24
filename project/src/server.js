@@ -21,7 +21,7 @@ class Server {
     }
 
     Routes() {
-        this.App.use('/counta', AccountRoutes);
+        this.App.use('/conta', AccountRoutes);
         this.App.use('/usuario', OwnerRoutes);
     }
 

@@ -10,15 +10,12 @@ const ConnectMysql = require('../../config/connectionDatabaseMysql');
 
 class AccountRepository {
 
-    async create({ idOwner, numeroDaConta }) {
-        return await ConnectMysql('CONTA').insert({
-            proprietario_id: idOwner,
-            conta: numeroDaConta
-        });
-    }
-
+    // buscar saldo
     async findBalance({ email }) {
-        return await ConnectMysql('CONTA').select('saldo', 'conta').where('EMAIL_PRO', email);
+        let sql = `
+        select * from conta where proprietario_id = (select id from proprietario where email_pro = ? );
+        `;
+        return await ConnectMysql.raw(sql, [email]);
     }
 
     async exists({ email }) {
