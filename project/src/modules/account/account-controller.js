@@ -6,7 +6,7 @@ class AccountController {
     // buscar saldo da conta
     async findBalnce(req, res) {
         try {
-            // esse EMAIL e recebido pelo TOKEN de autenticação.
+            // esse EMAIL é recebido pelo TOKEN de autenticação.
             const email = req.email;
             const infoCount = await AccountServices.findBalance({ email });
             if (infoCount instanceof Error) {
@@ -16,7 +16,7 @@ class AccountController {
                     status_code: http.STATUS_CODES[infoCount.name]
                 });
             }
-            // informarcoes da conta : saldo, numero da conta.
+            // informações da conta : saldo, numero da conta, id do responsavel.
             return res.status(200).json({
                 ok: true,
                 message: '## informações sobre sua conta ##',
