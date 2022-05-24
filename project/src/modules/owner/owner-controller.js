@@ -13,7 +13,7 @@ class OwnerController {
                     status_code: http.STATUS_CODES[400]
                 });
             }
-            const response = await OwnerServices(req.body);
+            const response = await OwnerServices.newOwner(req.body);
             if (response instanceof Error) {
                 return res.status(Number(response.name)).json({
                     ok: false,
@@ -27,6 +27,7 @@ class OwnerController {
                 status_code: http.STATUS_CODES[201]
             });
         } catch (error) {
+            console.log(error);
             return res.status(500).json({
                 ok: false,
                 message: 'Erro ao cadastrar um novo proprietario',

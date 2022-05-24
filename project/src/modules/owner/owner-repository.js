@@ -10,9 +10,9 @@ const ConnectMysql = require('../../config/connectionDatabaseMysql');
 
 class OwnerRepository {
 
-    async Create({ nome, email, telefone, pass }) {
+    async Create({ nome, email, telefone, password }) {
         return ConnectMysql('PROPRIETARIO').insert({
-            nome, email, telefone, pass
+            NOME_PRO: nome, EMAIL_PRO: email, TELEFONE_PRO: telefone, PASSW_PRO: password
         });
     }
 
@@ -24,6 +24,13 @@ class OwnerRepository {
         return response[0];
     }
 
+    async findbyemail({ email }) {
+        const response = await ConnectMysql('PROPRIETARIO').select('PASSW_PRO').where('email', email);
+        if (response[0] === undefined) {
+            return null;
+        }
+        return response[0];
+    }
 }
 
 module.exports = new OwnerRepository();
