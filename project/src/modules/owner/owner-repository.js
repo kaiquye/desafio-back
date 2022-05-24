@@ -1,18 +1,20 @@
 const ConnectMysql = require('../../config/connectionDatabaseMysql');
 
-/**
- * @create (nome, email, telefone, pass)  novo proprietario
- * @exists verifica se ja exite um pro cadastrado
- * @find buscar proprietario por id
- * @findAll buscar todos proprietarios
- * @delete apagar proprietario
- */
 
 class OwnerRepository {
 
     async Create({ nome, email, telefone, password }) {
-        return ConnectMysql('PROPRIETARIO').insert({
-            NOME_PRO: nome, EMAIL_PRO: email, TELEFONE_PRO: telefone, PASSW_PRO: password
+        return ConnectMysql.transaction(async (inner) => {
+            // criando um novo "usuario" e uma nova conta relacionada a ele.
+            const id = await ConnectMysql('PROPRIETARIO').transacting(inner).insert({
+                NOME_PRO: nome, EMAIL_PRO: email, TELEFONE_PRO: telefone, PASSW_PRO: password
+            }).returning('id');
+            //nova conta
+            await ConnectMysql('CONTA').transacting(inner).insert({
+                proprietario_id: id,
+                conta: Math.random(6),
+                saldo: 0
+            });
         });
     }
 

@@ -10,7 +10,7 @@ class Auth {
 
     Validade(req, res, next) {
         const Token = req.headers['authorization'];
-        if (Token) {
+        if (!Token) {
             return res.status(404).json({
                 ok: false,
                 message: 'Invalid token',
@@ -18,8 +18,9 @@ class Auth {
             });
         }
         try {
-            const { data } = jwt.verify(Token, process.env.SECRET);
-            if (data) return next();
+            const { email } = jwt.verify(Token, process.env.SECRET);
+            req.email = email;
+            if (email) return next();
         } catch (error) {
             return res.status(203).json({ ok: false, STATUS_CODES: http.STATUS_CODES['203'], message: 'Usuario não tem permisão. ' + error.message });
         }

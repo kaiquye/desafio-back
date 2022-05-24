@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const auth = require('../middleware/auth/index');
 
 class AccountRoutes {
 
@@ -6,10 +7,17 @@ class AccountRoutes {
 
     constructor() {
         this.Route = Router();
+        this.Middleware();
         this.Routes();
     }
 
+    Middleware() {
+        // validando se o usuario esta logado
+        this.Route.use(auth.Validade);
+    }
+
     Routes() {
+        this.Route.get('/account/meusaldo', );
     }
 }
 
