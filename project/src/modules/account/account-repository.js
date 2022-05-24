@@ -13,7 +13,7 @@ class AccountRepository {
     // buscar saldo
     async findBalance({ email }) {
         let sql = `
-        select * from conta where proprietario_id = (select id from proprietario where email_pro = ? );
+        select conta.conta, conta.proprietario_id as responsavel , format(saldo,2,'de_DE') as saldo from conta where proprietario_id = (select id from proprietario where email_pro = ? );
         `;
         return await ConnectMysql.raw(sql, [email]);
     }
