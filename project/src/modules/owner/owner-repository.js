@@ -1,6 +1,5 @@
 const ConnectMysql = require('../../config/connectionDatabaseMysql');
 
-
 /**
  * @create (nome, email, telefone, pass)  novo proprietario
  * @exists verifica se ja exite um pro cadastrado
@@ -17,9 +16,9 @@ class OwnerRepository {
         });
     }
 
-    async Existe({ email, telefone }) {
+    async exists({ email, telefone }) {
         const response = await ConnectMysql('PROPRIETARIO').select('id').orWhere('EMAIL_PRO', email).orWhere('TELEFONE_PRO', telefone);
-        if (response[0] === undefined){
+        if (response[0] === undefined) {
             return null;
         }
         return response[0];
@@ -27,5 +26,5 @@ class OwnerRepository {
 
 }
 
-module.export = new OwnerRepository();
+module.exports = new OwnerRepository();
 
