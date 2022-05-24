@@ -3,7 +3,8 @@ const ConnectMysql = require('../../config/connectionDatabaseMysql');
 
 class OwnerRepository {
 
-    async Create({ nome, email, telefone, password }) {
+    async Create({ nome, email, telefone, password }, { bairro, localidade, complemento, uf, cep }) {
+        // transaction
         return ConnectMysql.transaction(async (inner) => {
             // criando um novo "usuario" e uma nova conta relacionada a ele.
             const id = await ConnectMysql('PROPRIETARIO').transacting(inner).insert({
@@ -14,6 +15,10 @@ class OwnerRepository {
                 proprietario_id: id,
                 conta: Math.random(6),
                 saldo: 0
+            });
+            // novo endereço
+            await ConnectMysql('ENDERECO').transacting(inner).insert({
+                proprietario_id: id, bairro, localidade, complemento, uf, cep
             });
         });
     }

@@ -1,6 +1,7 @@
 const OwnerRepository = require('./owner-repository');
 const bycrypt = require('bcrypt');
 const auth = require('../../middleware/auth/index');
+const { findAddress } = require('../ViaCep/api');
 
 class OwnerServices {
 
@@ -12,10 +13,13 @@ class OwnerServices {
                 error.name = '409';
                 return error;
             }
+            // criando hahs da senha
             const salt = bycrypt.genSaltSync(10);
             const crypt = bycrypt.hashSync(Owner.password, salt);
             Owner.password = crypt;
-            await OwnerRepository.Create(Owner);
+            // buscando o endereço do usuario pela api via CEP
+            const address = await findAddress(Owner.cep);
+            await OwnerRepository.Create(Owner, address);
         } catch (error) {
             console.log(error);
             let error_ = new Error('Erro ao cadastrar um novo proprietario');

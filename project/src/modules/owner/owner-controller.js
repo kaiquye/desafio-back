@@ -6,6 +6,13 @@ class OwnerController {
 
     async newOwner(req, res) {
         try {
+            if (!req.body.cep) {
+                return res.status(400).json({
+                    ok: false,
+                    message: 'Cep invalido',
+                    status_code: http.STATUS_CODES[400]
+                });
+            }
             if (!req.body.nome || !req.body.telefone || !req.body.email || !req.body.password) {
                 return res.status(400).json({
                     ok: false,
