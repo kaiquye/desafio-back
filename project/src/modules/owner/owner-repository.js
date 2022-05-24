@@ -25,11 +25,11 @@ class OwnerRepository {
     }
 
     async findbyemail({ email }) {
-        const response = await ConnectMysql('PROPRIETARIO').select('PASSW_PRO').where('email', email);
+        const response = await ConnectMysql('PROPRIETARIO').select('PASSW_PRO').where('EMAIL_PRO', email);
         if (response[0] === undefined) {
             return null;
         }
-        return response[0];
+        return response[0].PASSW_PRO;
     }
 }
 

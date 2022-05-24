@@ -1,6 +1,6 @@
 const OwnerRepository = require('./owner-repository');
 const bycrypt = require('bcrypt');
-
+const auth = require('../../middleware/auth/index');
 
 class OwnerServices {
 
@@ -33,14 +33,18 @@ class OwnerServices {
                 error.name = '404';
                 return error;
             }
-            const match = await bycrypt.compare(password, Owner.password);
+            console.log(Owner.password, password);
+            const match = await bycrypt.compare(Owner.password, password);
+            console.log(match);
             if (!match) {
                 let error = new Error('Password/Email invalidos');
                 error.name = '404';
                 return error;
             }
-            return token;
+            // novo token
+            return auth.NewToken(Owner);
         } catch (error) {
+            console.log(error);
             let error_ = new Error('Error ao fazer login.');
             error_.name = '500';
             return error_;

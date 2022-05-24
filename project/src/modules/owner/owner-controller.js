@@ -36,6 +36,39 @@ class OwnerController {
         }
     }
 
+    async Login(req, res) {
+        try {
+            if (!req.body.email || !req.body.password) {
+                return res.status(400).json({
+                    ok: false,
+                    message: 'email/password não pode ser null',
+                    status_code: http.STATUS_CODES[400]
+                });
+            }
+            const response = await OwnerServices.login(req.body);
+            if (response instanceof Error) {
+                return res.status(Number(response.name)).json({
+                    ok: false,
+                    message: response.message,
+                    status_code: http.STATUS_CODES[response.name]
+                });
+            }
+            return res.status(200).json({
+                ok: true,
+                message: 'Login feito com sucesso.',
+                status_code: http.STATUS_CODES[200],
+                token: response,
+            });
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                ok: false,
+                message: 'Erro ao cadastrar um novo proprietario',
+                status_code: http.STATUS_CODES[500]
+            });
+        }
+    }
+
 }
 
 module.exports = new OwnerController();

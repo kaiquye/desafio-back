@@ -13,7 +13,8 @@ class OwnerRoutes {
     RoutesPublic() { }
 
     Routes() {
-        this.Route.post('/novocadastro', OwnerController.newOwner);
+        this.Route.post('/owner/novocadastro', OwnerController.newOwner);
+        this.Route.post('/owner/login', OwnerController.Login);
     }
 }
 
