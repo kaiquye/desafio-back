@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const OwnerController = require('../modules/owner/owner-controller');
 
 class OwnerRoutes {
 
@@ -9,10 +10,10 @@ class OwnerRoutes {
         this.Routes();
     }
 
-    RoutesPublic(){}
+    RoutesPublic() { }
 
     Routes() {
-        this.Route.post('novocadastro', );
+        this.Route.post('novocadastro', OwnerController.newOwner);
     }
 }
 

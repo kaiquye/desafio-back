@@ -10,7 +10,6 @@ class AccountRoutes {
     }
 
     Routes() {
-        this.Route.post('',);
     }
 }
 
