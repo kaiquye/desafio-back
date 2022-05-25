@@ -6,7 +6,7 @@
 
 ### Funcionalidades 🔨
 
-- Cadastro de novos clientes ( Consulta a API VIACEP );
+- Cadastro de novos clientes ( Consulta API VIACEP );
 - Efetuar login;
 - Visualizar saldo bancário;
 - Simular transferencias entre contas ( passando o numero de uma conta conhecida );
@@ -32,7 +32,6 @@
 Migrations 
 
 ```bash
-
   npx knex migrate:list
 
   npx knex migrate:up name_migrate
@@ -40,7 +39,7 @@ Migrations
   knex migrate:latest
 ```
 
-Node.JS version 16.15.0
+- Node.JS version 16.15.0
 
 # Modules 
 
@@ -69,6 +68,8 @@ response
 
 ### 👮‍♀️ Cadastrar 
 
+request 
+
 ```json
 {
   "nome" : "kaique", 
@@ -79,9 +80,11 @@ response
 }
 ```
 
+
+
 ## 📭 Account 
 
-### 💲 Buscar saldo da conta conta/meusaldo
+### 💲 Buscar saldo da conta/meusaldo
 
 request
 
@@ -108,7 +111,7 @@ response
   "status_code": "OK"
 }
 ```
-### 💲 Transferência saldo 
+### 💲 Transferência  
 
 request
 
