@@ -27,7 +27,7 @@ class AccountServices {
                 return error;
             }
             const checkBalance = await AccountRepository.findBalance(specAccount);
-            if (checkBalance[0].saldo < specAccount.value) {
+            if (checkBalance[0][0].saldo < specAccount.value) {
                 let error = new Error('saldo insuficiente.');
                 error.name = '400';
                 return error;

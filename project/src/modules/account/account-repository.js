@@ -32,7 +32,8 @@ class AccountRepository {
     async transfer({ email, conta, valor }) {
         return ConnectMysql.transaction(async (inner) => {
             let sql_desconto = `
-            update conta set saldo = saldo - ? where EMAIL_PRO = ? ;
+            update conta set saldo = saldo - ? where conta.proprietario_id = 
+            (select id from proprietario where proprietario.email_pro = ?);
             `;
             let sql_transf = `
             update conta set saldo = saldo + ? where conta = ? ;
