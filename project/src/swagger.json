@@ -100,8 +100,105 @@
                       "token": {
                         "example": "json web tokens"
                       },
-                      "status_code" : {
-                        "example" : "OK"
+                      "status_code": {
+                        "example": "OK"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/conta/meusaldo": {
+      "get": {
+        "summary": "buscar saldo.",
+        "description": "buscar saldo da conta",
+        "tags": ["conta"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "invalid request"
+          },
+          "200": {
+            "description": "sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ok": {
+                        "example": "true"
+                      },
+                      "message": {
+                        "example": "## informações sobre sua conta ##"
+                      },
+                      "dados_conta": {
+                        "example": [
+                          {
+                            "conta": "0.030788324554359647",
+                            "responsavel": 5,
+                            "saldo": "0,00"
+                          }
+                        ]
+                      },
+                      "status_code": {
+                        "example": "OK"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/conta/transferir": {
+      "post": {
+        "summary": " Transferir dinheiro",
+        "description": "buscar saldo da conta",
+        "tags": ["conta"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "invalid request"
+          },
+          "200": {
+            "description": "sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ok": {
+                        "example": "true"
+                      },
+                      "message": {
+                        "example": "## informações sobre sua conta ##"
+                      },
+                      "specs": {
+                        "example": [
+                          {
+                            "responsável": "kaiquemendesilva82@gmail.com",
+                            "data_Transferência": "2022-05-25 10:08:40",
+                            "conta": "0.6190907984898917",
+                            "valor": 3
+                          }
+                        ]
+                      },
+                      "status_code": {
+                        "example": "OK"
                       }
                     }
                   }

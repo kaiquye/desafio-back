@@ -1,5 +1,6 @@
 # Instruções do projeto
 
+
 ### Sistema bancário 🎑
 
 **Este sistema simula uma aplicação bancaria, aonde o usuario pode fazer transferências e ver algumas informações sobre sua conta.**
@@ -170,4 +171,4 @@ buscar informações sobre o endereço cadastrado
   
 
 #### **Observação**
-Esse projeto foi desenvolvido em 2 dias (48 horas), ele faz parte de um processo seletivo para vaga de desenvolvedor júnior.
+Este projeto foi desenvolvido em 2 dias (48 horas), ele faz parte de um processo seletivo para vaga de desenvolvedor júnior.
