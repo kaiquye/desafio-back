@@ -32,6 +32,38 @@ class AccountController {
         }
     }
 
+    async transfer(req, res) {
+        try {
+            if (!req.body.conta || !req.body.valor) {
+                return res.status(400).json({
+                    ok: false,
+                    message: 'Preencha todos os campos. ## Conta : numero da conta destino, Valor : Valor a ser transferido. ##',
+                    status_code: http.STATUS_CODES[400]
+                });
+            }
+            req.body.email = req.email;
+            const response = await AccountServices.transfer(req.body);
+            if (response instanceof Error) {
+                return res.status(Number(response.name)).json({
+                    ok: false,
+                    message: response.message,
+                    status_code: http.STATUS_CODES[response.name]
+                });
+            }
+            return res.status(201).json({
+                ok: true,
+                message: 'Transferência realizada com sucesso.',
+                status_code: http.STATUS_CODES[201]
+            });
+        } catch (error) {
+            return res.status(500).json({
+                ok: false,
+                message: 'Não foi possivel finalizar sua transferência. Entrar em contato com um administrador.',
+                status_code: http.STATUS_CODES[500]
+            });
+        }
+    }
+
 }
 
 module.exports = new AccountController();

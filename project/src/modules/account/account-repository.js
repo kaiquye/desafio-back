@@ -26,6 +26,30 @@ class AccountRepository {
         return response[0];
     }
 
+    // conta : numero da conta para qual o dinheiro vai ser transferido
+    // email : email da conta no qual o dinheiro vai ser descontado
+    // usando transition para garantir que os dados sejam transferidos. Em caso de erro o knex roda um rollback.
+    async transfer({ email, conta, valor }) {
+        return ConnectMysql.transaction(async (inner) => {
+            let sql_desconto = `
+            update conta set saldo = saldo - ? where EMAIL_PRO = ? ;
+            `;
+            let sql_transf = `
+            update conta set saldo = saldo + ? where conta = ? ;
+            `;
+            await ConnectMysql.raw(sql_desconto, [valor, email]).transacting(inner); // saldo descontado
+            await ConnectMysql.raw(sql_transf, [valor, conta]).transacting(inner); // saldo transferido
+        });
+    }
+
+    async findbyNumberAccount({ conta }) {
+        const response = await ConnectMysql('CONTA').select('id').where('conta', conta);
+        if (response === undefined) {
+            return null;
+        }
+        return response[0];
+    }
+
 }
 
 module.exports = new AccountRepository();

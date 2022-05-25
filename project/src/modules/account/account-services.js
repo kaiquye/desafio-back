@@ -18,17 +18,30 @@ class AccountServices {
 
     // nova transferencia
 
-    // async findBalance(OwnerSpec) {
-    //     try {
-    //         const saldo = await AccountRepository.findBalance(OwnerSpec);
-    //         return saldo;
-    //     } catch (error) {
-    //         console.log(error);
-    //         let error_ = new Error('Error ao cadastrar uma nova conta');
-    //         error_.name = '500';
-    //         return error_;
-    //     }
-    // }
+    async transfer(specAccount) {
+        try {
+            const existsAccount = await AccountRepository.findbyNumberAccount(specAccount);
+            if (existsAccount === null) {
+                let error = new Error('Numero da conta invalido/Conta não encontrada.');
+                error.name = '404';
+                return error;
+            }
+            const checkBalance = await AccountRepository.findBalance(specAccount);
+            if (checkBalance[0].saldo < specAccount.value) {
+                let error = new Error('saldo insuficiente.');
+                error.name = '400';
+                return error;
+            }
+            await AccountRepository.transfer(specAccount);
+        } catch (error) {
+            console.log(error);
+            let error_ = new Error('Error ao cadastrar uma nova conta');
+            error_.name = '500';
+            return error_;
+        }
+    }
+
+
 
 }
 

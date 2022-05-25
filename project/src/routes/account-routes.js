@@ -19,6 +19,7 @@ class AccountRoutes {
 
     Routes() {
         this.Route.get('/meusaldo', Controller.findBalnce);
+        this.Route.post('/transferir', Controller.transfer);
     }
 }
 
