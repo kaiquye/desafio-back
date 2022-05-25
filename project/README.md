@@ -159,7 +159,26 @@ caso envie uma conta que não exista
 
 ## 📭  module-Address
 
-buscar informações sobre o endereço cadastrado 
+atualizar endereço
+
+request
+````json
+ authorization : token
+
+ {
+	"cep" : "30850290"
+ }
+````
+response
+
+````json
+{
+	"ok": true,
+	"message": "Endereço atualizado com sucesso.",
+	"status_code": "OK"
+}
+````
+
 
 ### **Objetivos que podem ser alcançados**   📢
 - AppError : Modelo de erro, diminuindo a quantidade de codigos repedidos.

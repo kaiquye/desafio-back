@@ -166,6 +166,16 @@
         "description": "buscar saldo da conta",
         "tags": ["conta"],
         "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transferência"
+              }
+            }
+          }
+        },
         "responses": {
           "401": {
             "description": "Unauthorized"
@@ -249,14 +259,27 @@
             "example": "30850290"
           }
         }
+      },
+      "Transferência": {
+        "type": "object",
+        "properties": {
+          "conta": {
+            "type": "string",
+            "example": "0.6190907984898917"
+          },
+          "valor": {
+            "type": "Number",
+            "example": 300
+          }
+        }
       }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormart": "JWT"
-      }
+    }
+  },
+  "securitySchemes": {
+    "bearerAuth": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormart": "JWT"
     }
   }
 }
