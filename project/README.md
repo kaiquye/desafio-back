@@ -14,6 +14,7 @@
 ### Ferramentas 🛠
 
 - Back-End
+  - Swagger | **Documentação** : Documentação API.
   - Helmet | **Segurança** : Define vários cabeçalhos http. 
   - Cors | **Segurança** : Define quais métodos e url a api pode se conectar.
   - Express | **Server** : Framework web. 
@@ -41,11 +42,19 @@ Migrations
 
 - Node.JS version 16.15.0
 
+Documentação API 
+
+- Swagger | **em desenvolvimento**
+  
+```bash
+  http://localhost:4400/api-docs
+```
+
 # Modules 
 
 ## 📭 module-Owner 
 
-### 👮‍♀️ Login 
+### Login 
 request 
 ```json
 {
@@ -66,7 +75,7 @@ response
 }
 ```
 
-### 👮‍♀️ Cadastrar 
+###  Cadastrar 
 
 request 
 
@@ -82,7 +91,7 @@ request
 
 ## 📭  module-Account 
 
-### 💲 Buscar saldo da conta/meusaldo
+### Buscar saldo da conta/meusaldo
 
 request
 
@@ -109,7 +118,7 @@ response
   "status_code": "OK"
 }
 ```
-### 💲 Transferência  
+### Transferência  
 
 request
 
