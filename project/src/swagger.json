@@ -1,1 +1,94 @@
-{}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentação : desafio-back 🍀",
+    "description": "Documentação em desenvolvimento. ",
+    "contact": {
+      "email": "kaiquemendesilva82@gmail.com"
+    },
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4400",
+      "description": "API URL"
+    }
+  ],
+  "paths": {
+    "/usuario/novocadastro": {
+      "post": {
+        "summary": "cadastro de um novo usuario ( cliente ).",
+        "description": "Cadastro de um novo usuario na aplicação.",
+        "tags": ["usuario"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/usuario_cadastro"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "invalid request"
+          },
+          "404": {
+            "description": "Invalid user"
+          },
+          "201": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Token": {
+                        "example": "jwt"
+                      },
+                      "ok": {
+                        "example": "true"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "usuario_cadastro": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "example": "kaic"
+          },
+          "telefone": {
+            "type": "string",
+            "example": "31993328321"
+          },
+          "email": {
+            "type": "string",
+            "example": "kaiquemendesilva82@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "---senha---"
+          },
+          "cep": {
+            "type": "string",
+            "example": "30850290"
+          }
+        }
+      }
+    }
+  }
+}
