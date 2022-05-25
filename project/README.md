@@ -1,11 +1,12 @@
 # Instruções do projeto
 
 ### Sistema bancário 🎑
-**cadastro de novos clientes, listagem de informações sobre a conta ( saldo, numero da conta, responsavel)**
+** Este sistema simula uma aplicação bancaria, aonde o usuario pode fazer transferências e ver algumas informações sobre sua conta. **
 
 
 ### Funcionalidades 🔨
-- Cadastro
-- Login
-- Buscar saldo
+- Cadastro de novos clientes ( Consulta a API VIACEP )
+- Efetuar login
+- Visualizar saldo bancário
+- Simular transferencias
   
