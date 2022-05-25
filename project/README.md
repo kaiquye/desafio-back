@@ -154,6 +154,7 @@ buscar informações sobre o endereço cadastrado
 ### **Objetivos que podem ser alcançados**   📢
 - AppError : Modelo de erro, diminuindo a quantidade de codigos repedidos.
 - Testes : Implementar testes, evitando futuros imprevistos.
+- TypeScript : Escolhir não utilizar TS, pois ainda não me sinto 100% confortável em trabalhar com ele.
 ### **Objetivos "alcançados"**   📢
 - Segurança : Helmet, Cors, Json web tokens, validações em partes da aplicação.
 - Estrutura : Projeto criado e estruturado de acordo com alguns padrões : SOLID, Modules...
