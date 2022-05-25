@@ -4,6 +4,7 @@ exports.up = function (knex) {
         table.increments('id').unsigned().primary();
         table.string('cep').notNullable();
         table.string('logradouro');
+        table.string('localidade');
         table.string('complemento');
         table.string('bairro');
         table.string('uf');
