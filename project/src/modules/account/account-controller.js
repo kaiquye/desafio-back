@@ -76,7 +76,7 @@ class AccountController {
 
     async disables(req, res) {
         try {
-            const specs_accout = await AccountServices.desables({email : req.email});
+            const specs_accout = await AccountServices.desables({ email: req.email });
             return res.status(201).json({
                 ok: true,
                 message: '#Sua conta foi desativa com sucesso#',
@@ -84,13 +84,15 @@ class AccountController {
                     {
                         responsável: req.email,
                         data_desativa: dateTimeNew(),
-                        conta: specs_accout.conta,
-                        valor: specs_accout.valor
+                        conta: specs_accout.TELEFONE_PRO,
+                        valor: specs_accout.NOME_PRO,
+                        responsável: specs_accout.id
                     }
                 ],
                 status_code: http.STATUS_CODES[201]
             });
         } catch (error) {
+            console.log(error);
             return res.status(500).json({
                 ok: false,
                 message: 'Não foi possivel desativar sua conta. Entrar em contato com um administrador.',

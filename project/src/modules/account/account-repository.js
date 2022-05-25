@@ -55,6 +55,7 @@ class AccountRepository {
         console.log(email);
         const spesc_owner = await ConnectMysql('PROPRIETARIO').select('id', 'TELEFONE_PRO', 'NOME_PRO').where('EMAIL_PRO', email);
         await ConnectMysql('CONTA').update('active', false).where('proprietario_id', spesc_owner[0].id);
+        return spesc_owner[0];
     }
 }
 

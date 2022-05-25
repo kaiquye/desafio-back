@@ -44,6 +44,7 @@ class AccountServices {
     async desables(specsOwner) {
         try {
             const spescAccount = await AccountRepository.desableAccount(specsOwner);
+            return spescAccount;
         } catch (error) {
             console.log(error);
             let error_ = new Error('Error ao cadastrar uma nova conta');
