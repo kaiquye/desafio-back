@@ -51,6 +51,12 @@ class AccountRepository {
         return response[0];
     }
 
+    async desableAccount({ email }) {
+        let subquery = `
+            update conta set active = false where ( select id from proprietario where email_pro = ? )
+        `;
+        return ConnectMysql.raw(subquery, [email]);
+    }
 }
 
 module.exports = new AccountRepository();

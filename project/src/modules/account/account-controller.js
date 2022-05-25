@@ -5,7 +5,7 @@ const AccountServices = require('./account-services');
 class AccountController {
 
     // buscar saldo da conta
-    async findBalnce(req, res) {
+    async findBalance(req, res) {
         try {
             // esse EMAIL é recebido pelo TOKEN de autenticação.
             const email = req.email;
@@ -69,6 +69,18 @@ class AccountController {
             return res.status(500).json({
                 ok: false,
                 message: 'Não foi possivel finalizar sua transferência. Entrar em contato com um administrador.',
+                status_code: http.STATUS_CODES[500]
+            });
+        }
+    }
+
+    async disables(req, res) {
+        try {
+            await AccountServices.desables(req.email);
+        } catch (error) {
+            return res.status(500).json({
+                ok: false,
+                message: 'Não foi possivel desativar sua conta. Entrar em contato com um administrador.',
                 status_code: http.STATUS_CODES[500]
             });
         }
