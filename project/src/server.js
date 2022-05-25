@@ -1,5 +1,6 @@
 const express = require('express');
-const swaggerUi = require('swagg')
+const swaggerUi = require('swagger-ui-express');
+const swaggerDoc = require('./swagger.json');
 const { ConfigCors } = require('./middleware/cors/index');
 const { HelmetConfig } = require('./middleware/helmet/index');
 const AccountRoutes = require('./routes/account-routes');
@@ -23,6 +24,8 @@ class Server {
     }
 
     Routes() {
+        this.App.use('/api-docs', swaggerUi.serve);
+        this.App.get('/api-docs', swaggerUi.setup(swaggerDoc));
         this.App.use('/usuario', OwnerRoutes);
         this.App.use('/conta', AccountRoutes);
         this.App.use('/endereco', AddressRoutes);
