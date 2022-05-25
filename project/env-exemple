@@ -12,3 +12,42 @@ NODE_ENV =  development
 
 ### Services
 PORT = 4000
+
+
+
+exports.up = function (knex) {
+    return knex.schema.createTable('CONTA', function (table) {
+        table.increments('id').unsigned().primary();
+        table.string('conta').notNullable();
+        table.string('saldo').unique().notNullable();
+        table.bigInteger('proprietario_id').unsigned()
+            .index()
+            .references('id')
+            .inTable('PROPRIETARIO');
+    });
+};
+
+exports.down = function (knex) {
+
+};
+
+
+
+exports.up = function (knex) {
+    return knex.schema.createTable('ENDERECO', function (table) {
+        table.increments('id').unsigned().primary();
+        table.string('cep').notNullable();
+        table.string('logradouro');
+        table.string('complemento');
+        table.string('bairro');
+        table.string('uf');
+        table.bigInteger('proprietario_id').unsigned()
+            .index()
+            .references('id')
+            .inTable('PROPRIETARIO');
+    });
+};
+
+exports.down = function (knex) {
+
+};
