@@ -23,6 +23,7 @@ class AddressServices {
             }
             await addressRepository.update(addressViaCep, spescOwner);
         } catch (error) {
+            console.log(error);
             let error_ = new Error('Erro ao atualizar endereço');
             error_.name = '500';
             return error_;
