@@ -20,6 +20,7 @@ class AccountServices {
     async transfer(specAccount) {
         try {
             const existsAccount = await AccountRepository.findbyNumberAccount(specAccount);
+            console.log(existsAccount);
             if (existsAccount === null) {
                 let error = new Error('Numero da conta invalido/Conta não encontrada.');
                 error.name = '404';

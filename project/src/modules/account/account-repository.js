@@ -45,7 +45,7 @@ class AccountRepository {
 
     async findbyNumberAccount({ conta }) {
         const response = await ConnectMysql('CONTA').select('id').where('conta', conta);
-        if (response === undefined) {
+        if (response[0] === undefined) {
             return null;
         }
         return response[0];
