@@ -80,8 +80,6 @@ request
 }
 ```
 
-
-
 ## 📭  module-Account 
 
 ### 💲 Buscar saldo da conta/meusaldo

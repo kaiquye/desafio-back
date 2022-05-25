@@ -22,7 +22,7 @@ class OwnerServices {
             if (address instanceof Error) {
                 let error = new Error(address.message);
                 error.name = '400';
-                return error
+                return error;
             }
             await OwnerRepository.Create(Owner, address);
         } catch (error) {
