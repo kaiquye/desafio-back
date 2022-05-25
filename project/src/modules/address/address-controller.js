@@ -20,6 +20,23 @@ class AddressController {
             });
         }
     }
+
+
+    // atualizar endereço
+    async update(req, res) {
+        try {
+            // so é possivel atualizar o cep, pois a api viacep busca o restante.
+            if (!req.body.cep) {
+                return res.status(400).json({
+                    ok: true,
+                    message: 'invalid args',
+                    status_code : http.STATUS_CODES[400]
+                });
+            }
+        } catch (error) {
+
+        }
+    }
 }
 
 module.exports = new AddressController();

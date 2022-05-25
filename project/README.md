@@ -151,5 +151,9 @@ caso envie uma conta que não exista
 
 buscar informações sobre o endereço cadastrado 
 
-
-
+### **Objetivos que podem ser alcançados**   📢
+- AppError : Modelo de erro, diminuindo a quantidade de codigos repedidos.
+- Testes : Implementar testes, evitando futuros imprevistos.
+### **Objetivos "alcançados"**   📢
+- Segurança : Helmet, Cors, Json web tokens, validações em algumas partes da aplicação.
+- Estrutura : Projeto criado e estruturado de acordo com alguns padrões : SOLID, Modules...
