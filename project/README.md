@@ -14,15 +14,15 @@
 ### Ferramentas 🛠
 
 - Back-End
-  - Helmet
-  - Cors
-  - Express
-  - Knex
-  - Mysql
-  - Eslint
-  - bcrypt
-  - axios
-  - jsonwebtoken
+  - Helmet | **Segurança** : Define vários cabeçalhos http. 
+  - Cors | **Segurança** : Define quais métodos e url a api pode se conectar.
+  - Express | **Server** : Framework web. 
+  - Knex | **Query Builder** : Conexão I/O, construção de querys, segurança contra sql injection. 
+  - Mysql | **Database** : SGDB
+  - Eslint | **Code style** : airbnb
+  - bcrypt | **hash passwords**
+  - axios | **Connect api** : Conexão com a API-VIACEP
+  - jsonwebtoken **JSON Web Tokens** : autenticação 
 
 # Como rodar o projeto ? 🚶‍♀️
 
@@ -46,7 +46,7 @@ Migrations
 ## 📭 module-Owner 
 
 ### 👮‍♀️ Login 
-
+request 
 ```json
 {
   "email" : "kaiquemendesilva82@gmail.com",
