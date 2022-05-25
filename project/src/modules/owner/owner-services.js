@@ -1,7 +1,7 @@
 const OwnerRepository = require('./owner-repository');
 const bycrypt = require('bcrypt');
 const auth = require('../../middleware/auth/index');
-const { findAddress } = require('../ViaCep/api');
+const { findAddress } = require('../../util/ViaCep/api');
 
 class OwnerServices {
 
@@ -19,6 +19,11 @@ class OwnerServices {
             Owner.password = crypt;
             // buscando o endereço do usuario pela api via CEP
             const address = await findAddress(Owner.cep);
+            if (address instanceof Error) {
+                let error = new Error(address.message);
+                error.name = '400';
+                return error
+            }
             await OwnerRepository.Create(Owner, address);
         } catch (error) {
             console.log(error);

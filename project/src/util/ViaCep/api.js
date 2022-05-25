@@ -6,6 +6,6 @@ exports.findAddress = async (zipcode) => {
         const address = await axios.get(`https://viacep.com.br/ws/${zipcode}/json/`);
         return address.data;
     } catch (error) {
-        throw new Error('Cep invalido');
+        return new Error('cep invalido')
     }
 };
