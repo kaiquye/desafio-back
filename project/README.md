@@ -167,3 +167,7 @@ buscar informações sobre o endereço cadastrado
 ### **Objetivos "alcançados"**   📢
 - Segurança : Helmet, Cors, Json web tokens, validações em partes da aplicação.
 - Estrutura : Projeto criado e estruturado de acordo com alguns padrões : SOLID, Modules...
+  
+
+#### **Observação**
+Esse projeto foi desenvolvido em 2 dias (48 horas), ele faz parte de um processo seletivo para vaga de desenvolvedor júnior.
