@@ -19,6 +19,7 @@ class AddressRoutes {
 
     Routes() {
         this.Route.get('/buscarenderecocadastrado', Controller.find);
+        this.Route.get('/atualizarendereco', Controller.update);
     }
 }
 

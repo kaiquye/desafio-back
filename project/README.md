@@ -155,5 +155,5 @@ buscar informações sobre o endereço cadastrado
 - AppError : Modelo de erro, diminuindo a quantidade de codigos repedidos.
 - Testes : Implementar testes, evitando futuros imprevistos.
 ### **Objetivos "alcançados"**   📢
-- Segurança : Helmet, Cors, Json web tokens, validações em algumas partes da aplicação.
+- Segurança : Helmet, Cors, Json web tokens, validações em partes da aplicação.
 - Estrutura : Projeto criado e estruturado de acordo com alguns padrões : SOLID, Modules...

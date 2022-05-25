@@ -30,11 +30,28 @@ class AddressController {
                 return res.status(400).json({
                     ok: true,
                     message: 'invalid args',
-                    status_code : http.STATUS_CODES[400]
+                    status_code: http.STATUS_CODES[400]
                 });
             }
+            const response = await AddressServices.update(req.body.cep, req.email);
+            if (response instanceof Error) {
+                return res.status(Number(response.name)).json({
+                    ok: false,
+                    message: response.message,
+                    status_code: http.STATUS_CODES[response.name]
+                });
+            }
+            return res.status(200).json({
+                ok: true,
+                message: 'Endereço atualizado com sucesso.',
+                status_code: http.STATUS_CODES[200]
+            });
         } catch (error) {
-
+            return res.status(500).json({
+                ok: false,
+                message: 'Erro ao cadastrar um novo proprietario',
+                status_code: http.STATUS_CODES[500]
+            });
         }
     }
 }
