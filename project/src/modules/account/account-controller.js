@@ -1,4 +1,5 @@
 const http = require('http');
+const { dateTimeNew } = require('../../util/formatDate');
 const AccountServices = require('./account-services');
 
 class AccountController {
@@ -21,6 +22,7 @@ class AccountController {
                 ok: true,
                 message: '## informações sobre sua conta ##',
                 dados_conta: infoCount,
+                dataConsulta: dateTimeNew(),
                 status_code: http.STATUS_CODES[200]
             });
         } catch (error) {
@@ -52,7 +54,15 @@ class AccountController {
             }
             return res.status(201).json({
                 ok: true,
-                message: 'Transferência realizada com sucesso.',
+                message: '#Transferência realizada com sucesso.#',
+                specs: [
+                    {
+                        responsável: req.body.email,
+                        data_Transferência: dateTimeNew(),
+                        conta: req.body.conta,
+                        valor: req.body.valor
+                    }
+                ],
                 status_code: http.STATUS_CODES[201]
             });
         } catch (error) {

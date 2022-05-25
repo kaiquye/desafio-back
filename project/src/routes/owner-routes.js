@@ -11,8 +11,8 @@ class OwnerRoutes {
     }
 
     Routes() {
-        this.Route.post('/novocadastro', OwnerController.newOwner);
         this.Route.post('/login', OwnerController.Login);
+        this.Route.post('/novocadastro', OwnerController.newOwner);
     }
 }
 
