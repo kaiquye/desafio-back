@@ -20,7 +20,7 @@ class AccountRoutes {
     Routes() {
         this.Route.get('/meusaldo', Controller.findBalance);
         this.Route.post('/transferir', Controller.transfer);
-        this.Route.post('/desativarconta', Controller.disables);
+        this.Route.patch('/desativarconta', Controller.disables);
     }
 }
 

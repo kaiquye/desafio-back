@@ -52,10 +52,9 @@ class AccountRepository {
     }
 
     async desableAccount({ email }) {
-        let subquery = `
-            update conta set active = false where ( select id from proprietario where email_pro = ? )
-        `;
-        return ConnectMysql.raw(subquery, [email]);
+        console.log(email);
+        const spesc_owner = await ConnectMysql('PROPRIETARIO').select('id', 'TELEFONE_PRO', 'NOME_PRO').where('EMAIL_PRO', email);
+        await ConnectMysql('CONTA').update('active', false).where('proprietario_id', spesc_owner[0].id);
     }
 }
 

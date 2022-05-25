@@ -43,7 +43,7 @@ Migrations
 
 # Modules 
 
-## 📭 Owner 
+## 📭 module-Owner 
 
 ### 👮‍♀️ Login 
 
@@ -82,7 +82,7 @@ request
 
 
 
-## 📭 Account 
+## 📭  module-Account 
 
 ### 💲 Buscar saldo da conta/meusaldo
 
@@ -149,7 +149,7 @@ caso envie uma conta que não exista
 }
 ```
 
-## 📭 Address
+## 📭  module-Address
 
 buscar informações sobre o endereço cadastrado 
 
