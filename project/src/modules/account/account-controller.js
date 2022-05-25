@@ -43,7 +43,6 @@ class AccountController {
             }
             req.body.email = req.email;
             const response = await AccountServices.transfer(req.body);
-            console.log('fim', response);
             if (response instanceof Error) {
                 return res.status(Number(response.name)).json({
                     ok: false,

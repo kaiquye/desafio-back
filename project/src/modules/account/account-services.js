@@ -9,7 +9,6 @@ class AccountServices {
             const saldo = await AccountRepository.findBalance(OwnerSpec);
             return saldo[0];
         } catch (error) {
-            console.log(error);
             let error_ = new Error('Error ao cadastrar uma nova conta');
             error_.name = '500';
             return error_;
