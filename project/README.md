@@ -98,7 +98,7 @@ request
 
 ```json
 {
- 	"conta" : "0.6190907984898917",
+ 	"conta" : "0.6190907984898917", // conta para qual quer enviar o dinheiro
 	"valor" : 3
 }
 ```
@@ -111,15 +111,15 @@ response
 		{
 			"responsável": "tste",
 			"data_Transferência": "2022-05-25 10:08:40",
-			"conta": "0.6190907984898917",
+			"conta": "0.6190907984898917", // conta para qual o dinheiro foi enviado.
 			"valor": 3
 		}
 	],
 	"status_code": "Created"
 }
-}
 ```
 
+caso envie uma conta que não exista
 📢 conta invalida 
 
 ```json
@@ -129,3 +129,10 @@ response
 	"status_code": "Not Found"
 }
 ```
+
+## 📭 Address
+
+buscar informações sobre o endereço cadastrado 
+
+
+
