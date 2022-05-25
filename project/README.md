@@ -24,7 +24,23 @@
   - axios
   - jsonwebtoken
 
+# Como rodar o projeto ? 🚶‍♀️
 
+- SGDB : mysql 
+- Database : DESAFIO_BACK
+
+Migrations 
+
+```bash
+
+  npx knex migrate:list
+
+  npx knex migrate:up name_migrate
+  or 
+  knex migrate:latest
+```
+
+Node.JS version 16.15.0
 
 # Modules 
 
