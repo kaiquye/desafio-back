@@ -70,7 +70,7 @@ class OwnerController {
             console.log(error);
             return res.status(500).json({
                 ok: false,
-                message: 'Erro ao cadastrar um novo proprietario',
+                message: 'Erro ao fazer login.',
                 status_code: http.STATUS_CODES[500]
             });
         }
