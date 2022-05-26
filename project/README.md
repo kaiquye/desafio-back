@@ -28,9 +28,9 @@
   - axios | **Connect api** : Conexão com a API-VIACEP
   - jsonwebtoken **JSON Web Tokens** : autenticação 
 
-# Como rodar o projeto ? 🚶‍♀️
+## **Como rodar o projeto ?** 🚶‍♀️
 
-## **Banco de dados**
+### **Banco de dados**
 
 - SGDB : mysql 
 - Database : DESAFIO_BACK
@@ -45,17 +45,17 @@ Migrations
   knex migrate:latest
 ```
 
-## **Node.js**
+### **Node.js**
 - Node.JS version 16.15.0
 
-## **Documentação API** 
+### **Documentação API** 
 
 - Swagger | **em desenvolvimento**
 ```bash
   http://localhost:4400/api-docs
 ```
 
-# Modules 
+## **Modules** 📁
 A estrutura do projeto foi criada baseada em modulos.
 
 - **Modules** 
@@ -63,7 +63,7 @@ A estrutura do projeto foi criada baseada em modulos.
   - **Address** (endereço vinculado a conta. Atualiza o endereço) [ controller, repository, services ]
   - **Account** (conta do proprietário, neste modulo fica toda a regra de negocio relaciada a conta, transferencias, desativar conta) [ controller, repository, services ]
 
-## 📭 module-Owner 
+### 📭  **module-Owner** 
 
 ### Login 
 request 
@@ -100,7 +100,7 @@ request
 }
 ```
 
-## 📭  module-Account 
+## 📭  **module-Account** 
 
 ### Buscar saldo da conta/meusaldo
 
@@ -167,7 +167,7 @@ caso envie uma conta que não exista
 }
 ```
 
-## 📭  module-Address
+## 📭  **module-Address**
 
 atualizar endereço
 
