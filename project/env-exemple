@@ -1,10 +1,10 @@
-HOST = localhost
-USER = root
-PASSWORD = 1234
+HOST = 
+USER = 
+PASSWORD = 
 DATABASE = DESAFIO_BACK
 
 ### AUTH 
-SECRET = asjndas08das0d8as0dua89su203hhsadha0s8dhas0h
+SECRET = HAYSD&jahsdjahsjdhalkgdfjhghHHHHHH&878asdy732423a
 
 ### STATUS
 NODE_ENV =  development
@@ -15,39 +15,3 @@ PORT = 4000
 
 
 
-exports.up = function (knex) {
-    return knex.schema.createTable('CONTA', function (table) {
-        table.increments('id').unsigned().primary();
-        table.string('conta').notNullable();
-        table.string('saldo').unique().notNullable();
-        table.bigInteger('proprietario_id').unsigned()
-            .index()
-            .references('id')
-            .inTable('PROPRIETARIO');
-    });
-};
-
-exports.down = function (knex) {
-
-};
-
-
-
-exports.up = function (knex) {
-    return knex.schema.createTable('ENDERECO', function (table) {
-        table.increments('id').unsigned().primary();
-        table.string('cep').notNullable();
-        table.string('logradouro');
-        table.string('complemento');
-        table.string('bairro');
-        table.string('uf');
-        table.bigInteger('proprietario_id').unsigned()
-            .index()
-            .references('id')
-            .inTable('PROPRIETARIO');
-    });
-};
-
-exports.down = function (knex) {
-
-};
