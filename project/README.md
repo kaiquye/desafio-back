@@ -202,3 +202,10 @@ response
 
 #### **Observação**
 Este projeto foi desenvolvido em 2 dias (48 horas), ele faz parte de um processo seletivo para vaga de desenvolvedor júnior.
+
+## Autor 👩🏼‍🚀 
+- Kaique Mendes
+  
+➡ linkedin 
+
+https://www.linkedin.com/in/kaique-mendes-9b61381a5/
