@@ -11,6 +11,8 @@
 - Efetuar login;
 - Visualizar saldo bancário;
 - Simular transferencias entre contas ( passando o numero de uma conta conhecida );
+- Atualizar dados da sua conta (endereço)
+- Desativar conta.
 
 ### Ferramentas 🛠
 
@@ -28,6 +30,8 @@
 
 # Como rodar o projeto ? 🚶‍♀️
 
+## **Banco de dados**
+
 - SGDB : mysql 
 - Database : DESAFIO_BACK
 
@@ -41,17 +45,23 @@ Migrations
   knex migrate:latest
 ```
 
+## **Node.js**
 - Node.JS version 16.15.0
 
-Documentação API 
+## **Documentação API** 
 
 - Swagger | **em desenvolvimento**
-  
 ```bash
   http://localhost:4400/api-docs
 ```
 
 # Modules 
+A estrutura do projeto foi criada baseada em modulos.
+
+- **Modules** 
+  - **Owner** (proprietário da conta, cadastro, login)
+  - **Address** (endereço vinculado a conta. Atualiza o endereço)
+  - **Account** (conta do proprietário, neste modulo fica toda a regra de negocio relaciada a conta, transferencias, desativar conta)
 
 ## 📭 module-Owner 
 
@@ -187,6 +197,7 @@ response
 ### **Objetivos "alcançados"**   📢
 - Segurança : Helmet, Cors, Json web tokens, validações em partes da aplicação.
 - Estrutura : Projeto criado e estruturado de acordo com alguns padrões : SOLID, Modules...
+- Documentação : Documentação api com swagger.
   
 
 #### **Observação**
