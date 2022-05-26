@@ -197,7 +197,7 @@ response
 ### **Objetivos "alcançados"**   📢
 - Segurança : Helmet, Cors, Json web tokens, validações em partes da aplicação.
 - Estrutura : Projeto criado e estruturado de acordo com alguns padrões : SOLID, Modules...
-- Documentação : Documentação api com swagger.
+- Documentação : Documentação feita com swagger.
   
 
 #### **Observação**
