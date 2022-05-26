@@ -59,9 +59,9 @@ Migrations
 A estrutura do projeto foi criada baseada em modulos.
 
 - **Modules** 
-  - **Owner** (proprietário da conta, cadastro, login)
-  - **Address** (endereço vinculado a conta. Atualiza o endereço)
-  - **Account** (conta do proprietário, neste modulo fica toda a regra de negocio relaciada a conta, transferencias, desativar conta)
+  - **Owner** (proprietário da conta, cadastro, login) [ controller, repository, services ]
+  - **Address** (endereço vinculado a conta. Atualiza o endereço) [ controller, repository, services ]
+  - **Account** (conta do proprietário, neste modulo fica toda a regra de negocio relaciada a conta, transferencias, desativar conta) [ controller, repository, services ]
 
 ## 📭 module-Owner 
 
